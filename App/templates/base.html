@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} Default Value {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav_bar_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_page_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/file_upload_form_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/authcode_styles.css') }}">
+</head>
+
+
+<body>
+    {%if session['store_code']==0 %}
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="https://www.skopes.co.uk/">
+
+                <img src="{{ url_for('static', filename='images/skopes_logo2.png') }}" alt="Skopes Logo">
+            </a>
+            
+        </div>
+
+        <div class ="navbar-text">
+        
+            <p>Signed in as: {{ session.get('store_name')[0] | title }} 🏠</p>
+        </div>
+        
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('products') }}">Products</a></li>
+                <li><a href="{{ url_for('stores') }}">Stores</a></li>
+                <li><a href="{{ url_for('login') }}">Sign out</a></li>
+                
+            </ul>
+
+            
+        </div>
+
+
+
+    </nav>
+    {%else%}
+    <!-- User Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="https://www.skopes.co.uk/">
+
+                <img src="{{ url_for('static', filename='images/skopes_logo2.png') }}" alt="Skopes Logo">
+            </a>
+            
+        </div>
+
+        <div class ="navbar-text">
+        
+            <p>Signed in as: {{ session.get('store_name')[0] | title }} 🏠</p>
+        </div>
+        
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{{ url_for('store_home') }}">Home</a></li>
+                <li><a href="{{ url_for('auth_code') }}">Get Auth Code</a></li>
+                <li><a href="{{ url_for('login') }}">Sign out</a></li>
+                
+            </ul>
+
+            
+        </div>
+
+
+
+    </nav>
+    {%endif%}
+    {% block content %} {% endblock %}
+</body>
+
+</html>
+

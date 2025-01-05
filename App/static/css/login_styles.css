@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Added to ensure no extra margin */
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Changed to percentage for responsiveness */
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-header {
+    width: auto; /* Changed to auto for better scaling */
+    height: auto;
+    margin-right: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px; /* Adjusted slightly for better scaling */
+}
+
+.form-group input[type="number"],
+.form-group input[type="password"] {
+    width: 50%; /* Changed to full width for smaller screens */
+    max-width: 300px; /* Ensures inputs do not grow too large */
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+}
+
+.form-group label[for="password"] {
+    width: 100%; /* Adjusted for better layout on narrow screens */
+    padding: 10px;
+    font-size: 19px;
+    margin-left: 0; /* Removed negative margin for better alignment */
+}
+
+.btn-login {
+    background-color: #030404;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 19px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #505050;
+    box-shadow: 0 0 10px rgba(17, 17, 17, 0.7);
+}
+
+.welcome-message {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    /* Changes for tablets and smaller devices */
+    .login-container {
+        padding: 20px 30px; /* Reduced padding for smaller screens */
+        width: 100%; /* Take full width */
+    }
+
+    .form-group {
+        font-size: 16px; /* Slightly smaller font size */
+    }
+
+    .btn-login {
+        font-size: 16px; /* Adjust button font size */
+    }
+
+    .welcome-message {
+        font-size: 14px; /* Smaller font for the welcome message */
+        top: 10px; /* Adjusted positioning */
+        left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Changes for smartphones */
+    .login-container {
+        padding: 15px 20px; /* Further reduced padding for compact layout */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        max-width: 100%; /* Inputs take full container width */
+    }
+
+    .welcome-message {
+        font-size: 12px; /* Smaller font for very small screens */
+        top: 5px;
+        left: 5px;
+    }
+}

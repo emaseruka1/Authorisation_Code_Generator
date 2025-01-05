@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block title%}Store Home{%endblock%}
+
+{%block content%}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Auth Code</th>
+            <th>From Store</th>
+            <th>To Store</th>
+            <th>Products</th>
+            <th>Date Issued</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if transfers is none or transfers|length == 0 %}
+        <tr class="no-data">
+            <td colspan="7">No transfers available.</td> <!-- Span to cover all columns including Select -->
+        </tr>
+        {% else %}
+
+        {%for transfer in transfers%}
+        <tr>
+            <td>{{ transfer[0] }}</td>
+            <td>{{ transfer[1] }}</td> 
+            <td>{{ transfer[2] }}</td>
+            <td>{{ transfer[3] }}</td>
+            <td>{{ transfer[4] }}</td>
+            <td>{{ transfer[5] }}</td>
+        </tr>
+        {%endfor%}
+        {%endif%}
+    </tbody>
+</table>
+
+{%endblock%}

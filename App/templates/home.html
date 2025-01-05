@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<br>
+<form class="search-form" method="post">
+    <input type="hidden" value="search_auth_code" name ="action">
+    <label for="from_store">From Store: </label>
+    <input type="text" name="from_store" id="from_store">
+
+    <label for="to_store">To Store: </label>
+    <input type="text" name="to_store" id="to_store">
+
+    <label for="auth_code">Auth Code: </label>
+    <input type="text" name="auth_code" id="auth_code">
+
+    <label for="date_issued">Issued Before: </label>
+    <input type="date" name="date_issued" id="date_issued">
+
+    <button type="submit">Search Auth Code</button>
+</form>
+
+
+<form class="search-form" method="post">
+    <input type="hidden" value="generate_auth_code" name ="action">
+    <label for="code_letters">AuthCode Letters: </label>
+    <input type="text" name="code_letters" id="code_letters" required placeholder="Letter Combination i.e AR">
+
+    <label for="max_count">Max. Count: </label>
+    <input type="number" name="max_count" id="max_count" required placeholder="Number of Codes to Generate">
+
+
+    <button type="submit">Generate New Auth Codes</button>
+</form>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Select</th> <!-- New Select Column for Checkboxes -->
+            <th>ID</th>
+            <th>Auth Code</th>
+            <th>From Store</th>
+            <th>To Store</th>
+            <th>Products</th>
+            <th>Date Issued</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if transfers is none or transfers|length == 0 %}
+            <tr class="no-data">
+                <td colspan="7">No transfers available.</td> <!-- Span to cover all columns including Select -->
+            </tr>
+        {% else %}
+            {% for transfer in transfers %}
+            <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td> <!-- Checkbox in Select column -->
+                <td>{{ transfer[0] }}</td>
+                <td>{{ transfer[1] }}</td> 
+                <td>{{ transfer[2] }}</td>
+                <td>{{ transfer[3] }}</td>
+                <td>{{ transfer[4] }}</td>
+                <td>{{ transfer[5] }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div id="flashMessageModal" style="display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border-radius: 10px; z-index: 9999; width: 300px; background-color: #ebf4ed; color: #090909; border: 1px solid #080808; text-align: center;">
+            {% for category, message in messages %}
+                <div class="flash-message success" style="font-size: 16px; margin-bottom: 15px;">
+                    <p>{{ message }}</p>
+                </div>
+                <button onclick="closePopup()" style="padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">OK</button>
+            {% endfor %}
+        </div>
+
+        <script>
+            // Function to close the popup
+            function closePopup() {
+                document.getElementById("flashMessageModal").style.display = "none";
+            }
+        </script>
+    {% endif %}
+{% endwith %}
+
+
+{% endblock %}

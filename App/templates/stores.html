@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+{%block title%}Stores Page{%endblock%}
+
+
+
+
+{%block content%}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Store Code</th>
+            <th>Store Name</th>
+            <th>Login Password</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {%for store in stores%}
+        <tr>
+            <td>{{store[0]}}</td>
+            <td>{{store[1]}}</td>
+            <td>{{store[2]}}</td>
+            <td>{{store[3]}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+<form class="upload-form" method="post" action="/stores">
+    
+    <label for="new_store_code">New Store Code</label>
+    <input type="number" name="new_store_code" id="new_store_code">
+
+    <label for="new_store_name">New Store name</label>
+    <input type="text" name="new_store_name" id="new_store_name">
+
+    <label for="new_store_password">New Store Password</label>
+    <input type="text" name="new_store_password" id="new_store_password">
+    
+    <button type="submit">Add New Store</button>
+</form>
+
+
+{%endblock%}

@@ -1,0 +1,81 @@
+/* Style the upload form container */
+.upload-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduced space between input and button */
+    background-color: #e5eaef; /* Matches navbar background for consistency */
+    padding: 5px 15px; /* Reduced padding for smaller height */
+    border: 1px solid #ccc; /* Optional: a subtle border */
+    border-top-left-radius: 5px; /* Rounded edges for footer style */
+    border-top-right-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+
+    /* Footer-specific positioning */
+    position: fixed; /* Stick the form to the bottom */
+    bottom: 0; /* Align at the bottom of the viewport */
+    left: 0;
+    width: 100%; /* Full width of the page */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Style the file input */
+.upload-form input[type="file"],
+.upload-form input[type="text"],
+.upload-form input[type="number"],
+.upload-form input[type="password"] {
+    padding: 5px; /* Reduced padding inside inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px; /* Smaller font size */
+    transition: border-color 0.3s ease;
+}
+
+/* Change border color on focus */
+.upload-form input[type="file"]:focus,
+.upload-form input[type="text"]:focus,
+.upload-form input[type="number"]:focus,
+.upload-form input[type="password"]:focus {
+    border-color: #007BFF; /* Add a highlight effect */
+    outline: none;
+}
+
+/* Style the submit button */
+.upload-form button[type="submit"] {
+    padding: 5px 15px; /* Smaller padding */
+    background-color: #007BFF; /* Blue for a call-to-action effect */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Smaller font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add hover effect to the button */
+.upload-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Add focus effect to the button */
+.upload-form button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007BFF; /* Subtle glow effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .upload-form {
+        flex-direction: column; /* Stack inputs and button */
+        align-items: stretch; /* Full-width alignment */
+        gap: 8px; /* Slightly reduced spacing */
+    }
+
+    .upload-form input[type="file"], 
+    .upload-form button[type="submit"] {
+        width: 100%; /* Make them full-width */
+    }
+}

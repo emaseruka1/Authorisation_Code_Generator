@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_styles.css') }}">
+</head>
+
+<div class="welcome-message">
+    <h1>Welcome to your Authorization Code Generator.</h1>
+    <p>Powering your stock transfer process by instantly generating auth codes. Secure, fast, and reliable.</p>
+</div>
+
+
+<body>
+
+
+    <div class="login-container">
+
+        <div class="login-header">
+            <img src="{{ url_for('static', filename='images/skopes_logo2.png') }}" alt="Skopes Logo"> 
+        </div><br>
+
+            <!-- Displaying any flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    {% for category, message in messages %}
+                        <li style ="font-size: 16px; background-color: #f8d7da; color: #721c24;padding: 10px;margin-top: 20px;border: 1px solid;border-radius: 5px;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        <br>
+            
+        {% endwith %}
+        <form action="/" method="post" class="">
+
+            <div class="form-group">
+                <label for="store_code">Store Code:</label>
+                <input type="number" id="store_code" name="store_code" required> <br>
+            </div>
+
+            <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required> <br>
+            </div>
+            <br>
+            <div class="form-group">
+            <button type="submit" class="btn-login">Login</button>
+            </div>
+    
+        </form>
+
+    </div>
+
+</body>

@@ -1,0 +1,32 @@
+{%extends "base.html" %}
+{% block title %}Products Page{% endblock %}
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Code</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {%for product in products%}
+        <tr>
+            <td>{{product[0]}}</td>
+            <td>{{product[1]}}</td>
+            <td>{{product[2]}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+
+</table>
+
+
+<form class="upload-form" method="post" enctype="multipart/form-data" action="/products">
+    <input type="file" name="products_csv" accept=".csv" required ="required">
+    <button type="submit">Upload New Products</button>
+</form>
+
+{% endblock%}

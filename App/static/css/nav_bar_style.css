@@ -1,0 +1,72 @@
+/* Navigation Bar Styling */
+.navbar {
+    background-color: #e5eaef;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.navbar-logo img {
+    height: 50px; /* Adjust as needed */
+    
+}
+
+.navbar-links {
+    margin-left: 100px; /* Add space between the logo and the links */
+}
+
+/* Links */
+.navbar-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar-links ul li {
+    display: inline-block;
+}
+
+/* Adjust the navbar-text position to make it appear above the sign-out link */
+.navbar-text {
+    color: rgb(0, 0, 0);
+    position: absolute;
+    right: 25px;
+    font-weight: bold;
+    top: 20px;
+    text-align: right;
+    font-size: 16px; /* Optional: adjust size if needed */
+    margin-bottom: 10px; /* Create space between the text and the navbar links */
+}
+
+
+.navbar-links ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size:22px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-links ul li a:hover {
+    color: #474747; 
+    box-shadow: 0 0 30px rgba(17, 17, 17, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,83 @@
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Header Styling */
+table thead {
+    background-color: #c9dff4;
+    color: #333;
+}
+
+table thead th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+/* Table Body Styling */
+table tbody {
+    background-color: #f9f9f9;
+}
+
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Checkbox styling in each row */
+table tbody td input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Table Cell Styling */
+table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Ensures text breaks to a new line when needed */
+    word-break: break-word; /* Prevents overflow by breaking the word */
+}
+
+/* If checkbox is selected, highlight the row */
+table tbody tr.selected {
+    background-color: #d3ffd3;
+}
+
+/* Checkbox checked state */
+table tbody td input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+/* No data available message styling */
+table tbody tr.no-data {
+    background-color: #f9f9f9;
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    font-size: 20px;
+}
+
+/* Hover effect for table headers */
+table thead th:hover {
+    background-color: #d1d9e6;
+}
+
+/* Adjust the "Select" column width to fit checkboxes */
+table thead th:first-child,
+table tbody td:first-child {
+    width: 50px; /* Adjust as needed for checkbox size */
+    text-align: center; /* Center the checkboxes */
+}
